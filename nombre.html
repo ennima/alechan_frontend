@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nombre</title>
+</head>
+<body>
+	<div id="showme">Nombre</div>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script>
+  	$(document).ready(function(){
+  		console.log("MOLA");
+
+       // $.ajax({
+       //      type:"POST",
+       //      url: "http://localhost/phps/shitsita.php",
+       //      data:{"nombre":"coca"},
+       //      success: function (response){
+       //          var arr = $.parseJSON(response);
+       //          console.log(arr);
+       //          $("#showme").html(arr.nombre);
+
+       //      }
+       //  });
+       var nam = "Alechan";
+       $.getJSON('http://127.0.0.1:3000/nombre/'+nam, function(arr){
+          console.log(arr);
+          //var arr = $.parseJSON(data);
+          $("#showme").css("color",arr.color);
+          $("#showme").html("<h1>"+arr.acceso+"</h1><h2 style='color:#333;'>"+arr.cupon+"</h2>");
+          
+      });
+  	});
+  </script>
+
+</body>
+</html>
